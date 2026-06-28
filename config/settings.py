@@ -23,9 +23,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-i790wtynzcrug^3+j^5ifztm=$s8znv+it5e+hdvhit=is65%+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+import os
 
-ALLOWED_HOSTS = []
+DEBUG = os.environ.get("DEBUG", "False") == "True"
+
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "banking-system-api-ntid.onrender.com",
+]
 
 
 # Application definition
